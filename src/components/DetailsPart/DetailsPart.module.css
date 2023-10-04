@@ -1,0 +1,146 @@
+.detailsPart {
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+}
+
+.typeOfTicket {
+    height: 25px;
+    max-width: 120px;
+    align-items: center;
+    background-color: #8BA5D8;
+    color: #ffffff;
+    border-radius: 15px 0;
+    padding-left: 10px;
+}
+
+.details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.airline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #5C5C5C;
+    font-size: 18px;
+    font-weight: 400;
+    width: 120px;
+    margin: 30px 0;
+}
+
+.airlineLogo {
+    width: 45px;
+    height: 45px;
+    margin: 0 0 5px 0;
+}
+
+.flightSection {
+    width: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.flightDetails {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 20px 0 0;
+}
+
+.departureDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.timeFlightStyle {
+    color: #232323;
+    font-weight: 700;
+    font-size: 24px;
+    margin: 0 0 5px 0;
+}
+
+.cityFlightStyle {
+    font-size: 14px;
+    font-weight: 500;
+    color: #5C5C5C;
+}
+
+.dateFlightStyle {
+    font-weight: 400;
+    color: #5C5C5C;
+    font-size: 14px;
+}
+
+.bag {
+    margin: 0 10px 0 0;
+}
+
+.flightPlan {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #B7BAC1;
+    font-size: 14px;
+}
+
+.plan {
+    border-bottom: 1px solid #B7BAC1;
+    width: 265px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.travelTime {
+    margin: 10px 0 0 0;
+}
+
+.selectFlightTime {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 30px 0 0 0;
+}
+
+.selectFlightTimeButton {
+    border: 1px solid #B7BAC1;
+    border-radius: 10px;
+    width: 100px;
+    height: 35px;
+    color: #5C5C5C;
+    font-weight: 500;
+    font-size: 14px;
+    text-align: center;
+    background-color: #ffffff;
+    cursor: pointer;
+    margin: 0 15px 0 0;
+}
+
+.selectFlightTimeButton:active {
+    border: none;
+    background-color: #DDE3EE;
+    color: #232323;
+    width: 110px;
+    height: 40px;
+}
+
+.activeButtonChangeTime {
+    border: none;
+    font-weight: 500;
+    border-radius: 10px;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #DDE3EE;
+    color: #232323;
+    width: 110px;
+    height: 40px;
+    margin: 0 15px 0 0;
+}
