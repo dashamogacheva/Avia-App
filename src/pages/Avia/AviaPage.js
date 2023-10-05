@@ -7,56 +7,55 @@ import {changeArrivalCity, changeArrivalDate, changeDepartureCity, changeDepartu
 import {useEffect, useState} from "react";
 
 export default function AviaPage() {
+    const [btnDisabled, setBtnDisabled] = useState(true);
     const departureCity = useSelector((state) => state.departureCity);
     const arrivalCity = useSelector((state) => state.arrivalCity);
     const departureDate = useSelector((state) => state.departureDate);
     const arrivalDate = useSelector((state) => state.arrivalDate);
     const dispatch = useDispatch();
 
-    function handleChangeDepartureCity (event) {
+    function handleChangeDepartureCity(event) {
         if (event.target.value.trim() !== '') {
             dispatch(changeDepartureCity(event.target.value));
         }
     }
 
-    function handleChangeArrivalCity (event) {
+    function handleChangeArrivalCity(event) {
         if (event.target.value.trim() !== '') {
             dispatch(changeArrivalCity(event.target.value));
         }
     }
 
-    const [btnDisabled, setBtnDisabled] = useState(true);
-
-    useEffect(() => {
-        function handleCheckBtnDisabled () {
+    useEffect (() => {
+        function handleCheckBtnDisabled() {
             if (departureCity.trim() !== '' && arrivalCity.trim() !== '' && departureDate !== null) {
                 setBtnDisabled(false);
             } else {
-                setBtnDisabled (true);
+                setBtnDisabled(true);
             }
         }
         handleCheckBtnDisabled();
-    }, );
+    })
 
     return (
         <div className={styles.searchForm}>
             <div className={styles.searchFormHeader}>
                 <div className={styles.styleForLabelForm}>
-                    <label className={styles.styleForLabel}>Откуда</label>
+                    <label className={styles.styleForLabel}>* Откуда</label>
                     <input className={styles.inputStyles} type="text" name="firstname"
                            placeholder="Город вылета"
                            onChange={handleChangeDepartureCity}
                     ></input>
                 </div>
                 <div className={styles.styleForLabelForm}>
-                    <label className={styles.styleForLabel}>Куда</label>
+                    <label className={styles.styleForLabel}>* Куда</label>
                     <input className={styles.inputStyles} type="text" name="firstname"
                            placeholder="Город прилета"
                            onChange={handleChangeArrivalCity}
                     ></input>
                 </div>
                 <div className={styles.styleForLabelForm}>
-                    <label className={styles.styleForLabel}>Туда</label>
+                    <label className={styles.styleForLabel}>* Туда</label>
                     <DatePicker className={styles.inputStyles} selected={departureDate}
                                 dateFormat='dd/MM/yyyy'
                                 minDate={departureDate}
@@ -74,7 +73,7 @@ export default function AviaPage() {
             <div className={styles.searchButtonForm}>
                 <Link to={`/info`} style={{textDecoration: 'none'}}>
                     <button className={styles.searchButton}
-                        disabled={btnDisabled}
+                            disabled={btnDisabled}
                     >
                         Найти билеты
                     </button>

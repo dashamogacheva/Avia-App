@@ -7,11 +7,16 @@ export default function CardThere() {
     const arrivalCity = useSelector((state) => state.arrivalCity);
     const departureDate = useSelector((state) => state.departureDate);
     const departureDateFormat = departureDate.toISOString().slice(0, 10).split('-').reverse().join('.');
+
+    const departureHours = useSelector(state => state.departureHours);
+
     return (
         <div className={styles.cardThere}>
             <DetailsPart departureCity={departureCity}
                          arrivalCity={arrivalCity}
                          departureDate={departureDateFormat}
+                         departureHours={departureHours[0]}
+                         arrivalHours={departureHours[1]}
                          isChangeTime={true}
             />
             <div className={styles.pricePart}>

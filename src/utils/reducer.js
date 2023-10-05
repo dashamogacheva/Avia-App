@@ -2,14 +2,18 @@ import {
     CHANGE_DEPARTURE_CITY,
     CHANGE_ARRIVAL_CITY,
     CHANGE_DEPARTURE_DATE,
-    CHANGE_ARRIVAL_DATE
+    CHANGE_ARRIVAL_DATE,
+    CHANGE_DEPARTURE_HOURS
 } from './actions';
 
+const initialDepartureHours = ['09:20', '11:05'];
+
 const initialState = {
-    departureCity: '',
-    arrivalCity: '',
+    departureCity: 'Москва',
+    arrivalCity: 'Казань',
     departureDate: new Date(),
     arrivalDate: null,
+    departureHours: initialDepartureHours,
 };
 
 export function reducer(state = initialState, action) {
@@ -25,6 +29,9 @@ export function reducer(state = initialState, action) {
         }
         case CHANGE_ARRIVAL_DATE: {
             return {...state, arrivalDate: action.arrivalDate};
+        }
+        case CHANGE_DEPARTURE_HOURS: {
+            return {...state, departureHours: action.departureHours};
         }
         default: {
             return state;
