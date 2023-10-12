@@ -2,25 +2,28 @@ import styles from './AviaPage.module.css';
 import {Link} from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import {useDispatch, useSelector} from "react-redux";
-import {changeArrivalCity, changeArrivalDate, changeDepartureCity, changeDepartureDate} from "../../utils/actions";
-import {useEffect, useState} from "react";
+import {ChangeEvent, FC, useEffect, useState} from "react";
+import {useAppDispatch, useTypedSelector} from "../../utils/hooks";
+import {
+    changeArrivalCity,
+    changeArrivalDate,
+    changeDepartureCity,
+    changeDepartureDate
+} from "../../utils/actions";
 
-export default function AviaPage() {
-    const [btnDisabled, setBtnDisabled] = useState(true);
-    const departureCity = useSelector((state) => state.departureCity);
-    const arrivalCity = useSelector((state) => state.arrivalCity);
-    const departureDate = useSelector((state) => state.departureDate);
-    const arrivalDate = useSelector((state) => state.arrivalDate);
-    const dispatch = useDispatch();
+export const AviaPage:FC = () => {
+    const [btnDisabled, setBtnDisabled] = useState<boolean>(true);
+    const { departureCity, arrivalCity, departureDate, arrivalDate }= useTypedSelector((state) => state);
+    const dispatch = useAppDispatch();
 
-    function handleChangeDepartureCity(event) {
+    function handleChangeDepartureCity(event: ChangeEvent<HTMLInputElement>) {
+        event.preventDefault();
         if (event.target.value.trim() !== '') {
             dispatch(changeDepartureCity(event.target.value));
         }
     }
 
-    function handleChangeArrivalCity(event) {
+    function handleChangeArrivalCity (event: ChangeEvent<HTMLInputElement>) {
         if (event.target.value.trim() !== '') {
             dispatch(changeArrivalCity(event.target.value));
         }
@@ -28,7 +31,7 @@ export default function AviaPage() {
 
     useEffect (() => {
         function handleCheckBtnDisabled() {
-            if (departureCity.trim() !== '' && arrivalCity.trim() !== '' && departureDate !== null) {
+            if (departureCity.trim() !== '' && arrivalCity.trim() !== '' && departureDate) {
                 setBtnDisabled(false);
             } else {
                 setBtnDisabled(true);
@@ -60,14 +63,15 @@ export default function AviaPage() {
                                 dateFormat='dd/MM/yyyy'
                                 minDate={departureDate}
                                 required
-                                onChange={(date) => dispatch(changeDepartureDate(date))}/>
+                                onChange={(date:Date) => dispatch(changeDepartureDate(date))}
+                    />
                 </div>
                 <div className={styles.styleForLabelForm}>
                     <label className={styles.styleForLabel}>Обратно</label>
                     <DatePicker className={styles.inputStyles} selected={arrivalDate}
                                 dateFormat='dd/MM/yyyy'
                                 minDate={departureDate}
-                                onChange={(date) => dispatch(changeArrivalDate(date))}/>
+                                onChange={(date:Date) => dispatch(changeArrivalDate(date))}/>
                 </div>
             </div>
             <div className={styles.searchButtonForm}>

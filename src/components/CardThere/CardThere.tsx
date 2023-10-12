@@ -1,15 +1,11 @@
 import styles from './CardThere.module.css';
-import DetailsPart from "../DetailsPart/DetailsPart";
-import {useSelector} from "react-redux";
+import DetailsPart from "../DetailsPart";
+import {FC} from "react";
+import {useTypedSelector} from "../../utils/hooks";
 
-export default function CardThere() {
-    const departureCity = useSelector((state) => state.departureCity);
-    const arrivalCity = useSelector((state) => state.arrivalCity);
-    const departureDate = useSelector((state) => state.departureDate);
-    const departureDateFormat = departureDate.toISOString().slice(0, 10).split('-').reverse().join('.');
-
-    const departureHours = useSelector(state => state.departureHours);
-
+export const CardThere: FC = () => {
+    const {departureCity, arrivalCity, departureDate, departureHours} = useTypedSelector((state) => state);
+    const departureDateFormat: string = departureDate.toISOString().slice(0, 10).split('-').reverse().join('.');
     return (
         <div className={styles.cardThere}>
             <DetailsPart departureCity={departureCity}

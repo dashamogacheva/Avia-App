@@ -2,9 +2,19 @@ import styles from "./DetailsPart.module.css";
 import logo from "../../icons/logo.svg";
 import bag from '../../icons/bag.svg';
 import baggage from '../../icons/baggage.svg';
-import SelectFlightTime from "../SelectFlightTime/SelectFlightTime";
+import SelectFlightTime from "../SelectFlightTime";
+import {FC} from "react";
 
-export default function DetailsPart({departureCity, arrivalCity, departureDate, isChangeTime, departureHours, arrivalHours}) {
+type TProps = {
+    departureCity: string;
+    arrivalCity:string;
+    departureDate:string;
+    isChangeTime:boolean;
+    departureHours:string;
+    arrivalHours:string;
+}
+
+export const DetailsPart:FC<TProps> = ({departureCity, arrivalCity, departureDate, isChangeTime, departureHours, arrivalHours} ) => {
     return (
         <div className={styles.detailsPart}>
             <div className={styles.typeOfTicket}>
