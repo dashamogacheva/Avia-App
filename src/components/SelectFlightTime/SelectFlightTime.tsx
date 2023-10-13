@@ -1,7 +1,7 @@
 import styles from "./SelectFlightTime.module.css";
 import {FC} from "react";
 import {useAppDispatch} from "../../utils/hooks";
-import {ActionTypes, changeDepartureHours} from "../../utils/actions";
+import {changeDepartureHours} from "../../utils/actions";
 
 export const SelectFlightTime: FC = () => {
     const dispatch = useAppDispatch();
@@ -11,7 +11,7 @@ export const SelectFlightTime: FC = () => {
     return (
         <div className={styles.selectFlightTime}>
             <button id='1' className={styles.selectFlightTimeButton}
-                    onClick={() => dispatch({type: ActionTypes.CHANGE_DEPARTURE_HOURS, timesA})}
+                    onClick={() => dispatch(changeDepartureHours(timesA))}
             >
                 09:20 - 11:05
             </button>

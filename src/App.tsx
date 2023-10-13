@@ -1,5 +1,5 @@
 import './App.css';
-// import {RouterProvider} from "react-router-dom";
+import {BrowserRouter} from "react-router-dom";
 import Router from "./utils/routing";
 import {reducer} from "./utils/reducer";
 import {applyMiddleware, createStore} from "redux";
@@ -13,8 +13,9 @@ function App() {
     return (
         <div className="App">
             <Provider store={store}>
-                {/*<RouterProvider router={Router}/>*/}
-                <Router/>
+                <BrowserRouter>
+                    <Router/>
+                </BrowserRouter>
             </Provider>
         </div>
     );

@@ -32,19 +32,19 @@ interface ChangeDepartureHoursAction {
     type: ActionTypes.CHANGE_DEPARTURE_HOURS;
     departureHours: string[];
 }
-export function changeDepartureCity (departureCity: string) {
+export function changeDepartureCity (departureCity: string): ChangeDepartureCityAction {
     return { type: ActionTypes.CHANGE_DEPARTURE_CITY, departureCity };
 }
-export function changeArrivalCity(arrivalCity: string) {
+export function changeArrivalCity(arrivalCity: string): ChangeArrivalCityAction {
     return { type: ActionTypes.CHANGE_ARRIVAL_CITY, arrivalCity };
 }
-export function changeDepartureDate(departureDate: Date) {
+export function changeDepartureDate(departureDate: Date): ChangeDepartureDateAction {
     return { type: ActionTypes.CHANGE_DEPARTURE_DATE, departureDate };
 }
-export function changeArrivalDate(arrivalDate: Date) {
+export function changeArrivalDate(arrivalDate: Date): ChangeArrivalDateAction {
     return { type: ActionTypes.CHANGE_ARRIVAL_DATE, arrivalDate };
 }
-export function changeDepartureHours(departureHours: string[]) {
+export function changeDepartureHours(departureHours: string[]):ChangeDepartureHoursAction {
     return { type: ActionTypes.CHANGE_DEPARTURE_HOURS, departureHours };
 }
 
