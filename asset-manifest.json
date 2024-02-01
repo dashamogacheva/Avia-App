@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Avia-App/static/css/main.466cc9f8.css",
+    "main.js": "/Avia-App/static/js/main.cec5f9bb.js",
+    "static/media/logo.svg": "/Avia-App/static/media/logo.f8f4eb3ba510c0d9c9b073eee39fe138.svg",
+    "static/media/baggage.svg": "/Avia-App/static/media/baggage.f91af8688550a31c03f44ea246e483d0.svg",
+    "static/media/bag.svg": "/Avia-App/static/media/bag.debfd6b1c282c371eebab86fb42a5bab.svg",
+    "index.html": "/Avia-App/index.html",
+    "main.466cc9f8.css.map": "/Avia-App/static/css/main.466cc9f8.css.map",
+    "main.cec5f9bb.js.map": "/Avia-App/static/js/main.cec5f9bb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.466cc9f8.css",
+    "static/js/main.cec5f9bb.js"
+  ]
+}
